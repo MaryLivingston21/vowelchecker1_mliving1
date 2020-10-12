@@ -1,3 +1,7 @@
+////
+//// Created by Jason D Hibbeler
+////
+//
 //// This program find the maximum value in a global array of integers
 //// by creating two threads and having each thread look at half of the
 //// array.  After the two threads are complete and have/ each computed

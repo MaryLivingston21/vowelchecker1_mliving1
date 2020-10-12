@@ -18,12 +18,10 @@ typedef struct {
 char buffer[BUFLEN];
 int allVowelsPresent;
 
-char *phrases[] = { "educated", "educated cat", "educated lion", "serious person", "serious panda", "curious student", "curious art student", "obnoxious web developer"};
-
-
 //------------------------------------------------
 
 void *checker(void *param) {
+
     SyncInfo *data;
     data = (SyncInfo *) param;
 
@@ -41,7 +39,7 @@ void *checker(void *param) {
                     if (strchr(localBuffer, 'o') != NULL){
                         if (strchr(localBuffer, 'u') != NULL){
                             allVowelsPresent = 1;
-                            printf("All vowels present");
+                            //printf("All vowels present");
                         }
                     }
                 }
@@ -56,6 +54,9 @@ int main() {
     syncInfo.numPhrases = 8;
     pthread_t tidOne;
     int i;
+
+    char *phrases[] = { "educated", "educated cat", "educated lion", "serious person", "serious panda", "curious student", "curious art student", "obnoxious web developer"};
+
 
     // pthread_create() to create the second thread; pass it a reference to syncInfo
     pthread_create(&tidOne, NULL, checker, &syncInfo);
