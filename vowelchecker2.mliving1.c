@@ -42,6 +42,8 @@ void *checker(void *param) {
     mutex = data->mutex;
     n = data->numPhrases;
 
+    printf("checker: will check %d phrases\n", n);
+
     //printf("Checker: waiting for sem1 to start\n");
     sem_wait(sem1);
     //printf("Checker: started \n");
@@ -77,7 +79,7 @@ void *checker(void *param) {
                 }
             }
         }
-        //printf("Checker: sem2 posted\n");
+        printf("checked ’%s’: result is %d\n", localBuffer, allVowelsPresent);
         sem_post(sem2);
         //printf("Checker: waiting for sem1 to continue\n");
         sem_wait(sem1);
